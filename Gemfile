@@ -60,3 +60,21 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+#devise追加
+gem 'devise'
+#画像の投稿機能
+gem "refile", require: "refile/rails", github: 'manfe/refile'
+gem "refile-mini_magick"
+#Markdown実装
+gem 'redcarpet', '~> 2.3.0'
+gem 'coderay'
+#Tag-it は jQuery UI を利用
+gem 'jquery-rails'
+gem 'jquery-ui-rails'
+#Rails から JavaScript にデータを渡すため
+gem 'gon'
+#画像投稿機能
+gem "refile", require: "refile/rails", github: 'manfe/refile'
+gem "refile-mini_magick"
+
+gem 'kaminari','~> 1.2.1'

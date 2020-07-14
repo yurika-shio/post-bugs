@@ -1,0 +1,55 @@
+<%= form_with(model: article, local: true) do |form| %>
+  <% if article.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(article.errors.count, "error") %> prohibited this article from being saved:</h2>
+
+      <ul>
+      <% article.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_area :title %>
+  </div>
+
+  <div class="article-tags-field">
+    <%= form.label "カテゴリー" %>
+    <ul id="article-tags">
+    </ul>
+  </div>
+
+  <div class="field">
+    <%= form.label :error_name %>
+    <%= form.text_area :error_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :reference %>
+    <%= form.text_area :reference %>
+  </div>
+
+  <div class="field">
+    <%= form.label :introduction %>
+    <%= form.text_area :introduction %>
+  </div>
+
+  <div class="field">
+    <%= form.label :factor %>
+    <%= form.text_area :factor %>
+  </div>
+
+  <div class="field">
+    <%= form.label :result %>
+    <%= form.text_area :result %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "投稿" ,name:"button1" %>
+    <%= form.submit "KEEP" ,name:"button2" %>
+  </div>
+<% end %>

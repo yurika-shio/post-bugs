@@ -5,10 +5,64 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= include_gon %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+  <header>
 
+
+    <nav class="navbar navbar-expand">
+     <div class="container">
+      <div class="naavbar-header">
+        <div class="navbar-brand">
+          <%= link_to "PostBugs", root_path %></div>
+      </div>
+          <!-- flashメッセージ表示 -->
+      <div class="navbar-nav navbar-right">
+       <% if user_signed_in? %>
+        <ul class= "list-inline">
+          <li>
+
+          </li>
+          <li>ようこそ <%= current_user.name %> さん！</li>
+          <li><%= link_to "ABOUT", about_path %></li>
+          <li><%= link_to "MyPage", user_path(current_user.id) %></li>
+          <li><%= link_to "Article's", articles_path %></li>
+          <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+        </ul>
+      <% else %>
+        <ul class= "list-inline">
+          <li>ようこそ ゲストさん！</li>
+          <li><%= link_to "TOP", top_path %></li>
+          <li><%= link_to "ABOUT", about_path %></li>
+          <li><%= link_to "新規登録", new_user_registration_path %></li>
+          <li><%= link_to "ログイン", new_user_session_path %></li>
+        </ul>
+      <% end %>
+    </div>
+    </div>
+    </nav>
+  </header>
+
+  <% if user_signed_in? %>
+  <div class="search-form" style="margin-top: 70px; text-align: center;">
+    <%= form_tag(search_path, method: :get) do %>
+  <%= text_field_tag 'search[content]' %>
+  <%= select_tag 'search[model]',options_for_select({ "ユーザー" => "user", "記事" => "articles" }) %>
+  <%= submit_tag '検索' %>
+<% end %>
+  </div>
+<% end %>
+
+  <body>
+   <div class="navbar-notice">
+            <% if flash[:notice] %>
+              <p><%= flash[:notice]%></p>
+            <% end %>
+          </div>
   <body>
     <%= yield %>
   </body>
