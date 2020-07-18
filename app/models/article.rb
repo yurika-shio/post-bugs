@@ -4,6 +4,13 @@ class Article < ApplicationRecord
 	has_many :categories, through: :article_categories
 	has_many :comments
 
+	scope :from_category, -> (category_id)  { where(id: article_ids = ArticleCategory.where(category_id: category_id).select(:article_id))}
+
+	def self.search_by_title(titles)
+		articles = Article.where(is_completed: true).where('title LIKE ?', "%#{titles}%")
+	end
+
+
 	def save_categories(tags)
 		current_tags = self.categories.pluck(:category_name) unless self.categories.nil?
 		old_tags = current_tags - tags
@@ -21,5 +28,5 @@ class Article < ApplicationRecord
 		end
 	end
 
-	scope :from_category, -> (category_id)  { where(id: article_ids = ArticleCategory.where(category_id: category_id).select(:article_id))}
+
 end

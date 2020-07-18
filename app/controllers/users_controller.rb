@@ -17,6 +17,9 @@ class UsersController < ApplicationController
   		render "edit"
   	end
   end
+  def index
+    @users = User.all #一覧表示するためにUserモデルのデータを全て変数に入れて取り出す。
+  end
 
   private
   def user_params

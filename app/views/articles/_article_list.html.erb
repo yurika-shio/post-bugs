@@ -1,0 +1,24 @@
+<table>
+  <thead>
+    <tr>
+      <th>投稿日</th>
+      <th>title</th>
+      <th>error_name</th>
+      <th>言語</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @articles.each do |article| %>
+      <tr>
+        <td><%= article.created_at %></td>
+        <td><%= article.title %></td>
+        <td><%= article.error_name %></td>
+        <td><%= article.categories.pluck(:category_name).join(",") %></td>
+        <td>コメント数：<%= article.comments.count %></td>
+        <td><%= link_to 'Show', article %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

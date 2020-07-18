@@ -10,3 +10,4 @@ $(document).on 'turbolinks:load', ->
   if gon.article_tags?
     for tag in gon.article_tags
       $('#article-tags').tagit 'createTag', tag[1]
+

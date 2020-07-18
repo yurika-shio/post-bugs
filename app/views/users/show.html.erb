@@ -1,6 +1,16 @@
 <div class="container">
 	<div class="row">
 		<div class="col-xs-3">
+			<% if user_signed_in? %>
+			<div class="search-form" style="margin-top: 70px; text-align: center;">
+				<%= form_tag(search_path, method: :get) do %>
+				<%= text_field_tag 'search[content]' %>
+				<%= select_tag 'search[model]',options_for_select({ "ユーザー" => "user", "記事" => "articles" }) %>
+				<%= submit_tag '検索' %>
+				<% end %>
+			</div>
+			<% end %>
+
 			<h2>User info</h2>
 			<%= render 'users/profile', user: @user %>
 

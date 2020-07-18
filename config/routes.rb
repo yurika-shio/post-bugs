@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
-  resources :articles
   devise_for :users
   resources :users,only: [:show,:index,:edit,:update]
   resources :articles do
   	resource :comments, only: [:create, :destroy]
+    collection do
+      get  :ajax_article_list
+    end
   end
   get '/top' => 'homes#top'
   get '/about' => 'homes#about'
