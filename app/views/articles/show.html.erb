@@ -1,74 +1,95 @@
-<p id="notice"><%= notice %></p>
-
-<% unless @article.categories.blank? %>
-  <ul>
-    <% @article.categories.each do |category| %>
-      <li>
-        <%= link_to category.category_name,articles_path(category_id:category.id) %>
-      </li>
-    <% end %>
-  </ul>
-<% end %>
-
-<p>
-  <strong>Title:</strong>
-  <%= @article.title %>
-</p>
-
-<p>
-  <strong>error_name:</strong>
-  <%= @article.error_name %>
-</p>
-
-<p>
-  <strong>reference:</strong>
-  <%= @article.reference %>
-</p>
-
-<p>
-  <strong>Introduction:</strong>
-  <%= @article.introduction %>
-  <%= markdown(@article.introduction).html_safe %>
-</p>
-
-<p>
-  <strong>Factor:</strong>
-  <%= @article.factor %>
-  <%= markdown(@article.factor).html_safe %>
-</p>
-
-<p>
-  <strong>Result:</strong>
-  <%= @article.result %>
-  <%= markdown(@article.result).html_safe %>
-</p>
-
-<p>
-  <strong>Comment:</strong>
-  <%= @article.comments.count %>件コメント
-</p>
-
-<table>
-  <% @comments.each do |comment| %>
-    <tr>
-      <td>
-        <%= link_to user_path(comment.user), class: "user_#{comment.user.id}" do %>
-            <%= attachment_image_tag comment.user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg", size: "50x50" %><br>
-            <%= comment.user.name %>
-        <% end %>
-      </td>
-      <td><%= comment.comment %></td>
-      <% unless current_user != comment.user %>
-        <td><%= link_to 'Destroy', article_comments_path(comment.id), class: 'btn-sm btn-danger', method: :delete %></td>
+<!-- <p id="notice"><%= notice %></p>
+ -->
+<div class="container">
+  <div class="row">
+    <div class="category-link">
+    <% unless @article.categories.blank? %>
+       <!-- <ul> -->Click! -->
+      <% @article.categories.each do |category| %>
+<!--       <li> -->
+        <%= link_to category.category_name,articles_path(category_id:category.id),class: 'btn btn-default sideby' %>
+<!--       </li> -->
       <% end %>
-    </tr>
-  <% end %>
-</table>
-<div class="comment-form">
-  <%= form_for [@article, @comment] do |f| %>
-    <%= f.text_area :comment, size: "90x5" %>
-    <%= f.submit '送信' %>
-  <% end %>
+<!--     </ul> -->
+    <% end %>
+  </div>
+
+    <div class="row article_show">
+    <div class="col-sm-5">
+      <div class="form_text">
+        <strong>Title:</strong>
+        <p><%= @article.title %></p>
+      </div>
+
+      <div class="form_text">
+        <strong>error_name:</strong>
+        <p><%= @article.error_name %></p>
+      </div>
+
+      <div class="form_text">
+        <strong>reference:</strong>
+        <p><%= @article.reference %></p>
+      </div>
+
+      <div class="form_area">
+        <strong>Factor:</strong>
+<!--         <%= @article.factor %> -->
+        <%= markdown(@article.factor).html_safe %>
+      </div>
+    </div>
+
+    <div class="col-sm-6">
+      <div class="form_area">
+        <strong>Introduction:</strong>
+<!--         <%= @article.introduction %> -->
+        <%= markdown(@article.introduction).html_safe %>
+      </div>
+
+      
+
+      <div class="form_area">
+        <strong>Result:</strong>
+<!--         <%= @article.result %> -->
+        <%= markdown(@article.result).html_safe %>
+      </div>
+    </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-7">
+        <strong>talking:</strong>
+        <%= @article.comments.count %>
+      <div class="comment-form">
+        <%= form_for [@article, @comment] do |f| %>
+        <%= f.text_area :comment, size: "50x5" %>
+        <%= f.submit '送信',class: 'btn btn-default sideby' %>
+        <% end %>
+      </div>
+
+      
+      
+      </div>
+
+      <div class="col-sm-5">
+        <table>
+        <% @comments.each do |comment| %>
+        <tr>
+          <td><%= link_to user_path(comment.user), class: "user_#{comment.user.id}" do %>
+              <%= attachment_image_tag comment.user, :profile_image, format: "jpeg", fallback: "no_image.jpg", class: "comment_image", style: " text-align: center;" %><br>
+              <%= comment.user.name %><% end %></td>
+
+          <td><%= comment.comment %></td>
+
+          <% unless current_user != comment.user %>
+          <td><%= link_to 'Destroy', article_comments_path(comment.id),class: 'btn btn-default sideby', method: :delete %></td>
+          <% end %>
+        </tr>
+        <% end %>
+      </table>
+
+      
+    </div>
+  </div>
 </div>
 
 

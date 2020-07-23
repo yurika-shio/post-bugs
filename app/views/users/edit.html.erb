@@ -1,3 +1,6 @@
+<div class="container mypage">
+  <div class="row">
+
 <h2>User info</h2>
 
 <%= form_for(@user) do |f| %>
@@ -25,11 +28,13 @@
 
 <div class="field">
     <%= f.label :email, 'メールアドレス' %><br />
-    <%= f.email_field :email, class: "email form-control" %>
+    <%= f.email_field :email, class: "email" %>
   </div>
 
 <div class="actions get-button">
-    <%= f.submit "編集内容を保存する" ,class: 'btn btn-success' %>
+    <%= f.submit "編集内容を保存する" ,class: 'btn btn-default sideby' %>
   </div>
 
 <% end %>
+</div>
+</div>

@@ -1,0 +1,401 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require jquery.tagit
+ *= require tagit.ui-zendesk
+ *= require_self
+ */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+$page-bg: #fff;
+$light-blue: #3599FF;
+$bright-blue: #68B3FF;
+$light-gray: #999;
+//$curve: cubic-bezier(0, 0, 0.52, 1.11);
+$curve: linear;
+
+
+
+#error_explanation {
+  color: red;
+  padding-bottom: 20px;
+  h2 {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  ul {
+    padding-left: 50px;
+    list-style: circle;
+  }
+}
+
+.form{
+  width: 400px;
+  margin: 0 auto;
+  text-align: left;
+  margin-top: 10em;
+
+
+  label{
+    display: block;
+    text-align: left;
+    color: #000;
+    font-size: .875em;
+  }
+
+ .field{
+
+    .email_field{
+      overflow: hidden;  
+       margin-bottom: .875em;
+    }
+    
+    .field {
+      width: 100%;
+      padding: 1em 0 12px;
+      padding-left: 0;
+      background: none;
+      color: white;
+      font-size: 1.2em;
+      font-weight: 400;
+      border: none;
+      border-bottom: 1px solid $light-gray;
+      
+          
+      /*Some sibling magic happens */
+      &:focus + .separator {
+       transform: scaleX(1) translateY(-2px);   
+         opacity: 1;
+      }
+      
+    }
+    
+    .actions{
+      color: white;
+      background-color: $light-blue;
+      padding: 1em 1.4em;
+      font-size: 1.2em;
+      border:none;
+      border-radius: 10px;
+    }
+  }
+}
+
+.separator {
+  height:3px;
+  width: 100%;
+  background-color: $bright-blue;
+  display: block;
+  transform: scaleX(0) translateY(-2px);
+  transform-origin: 50%;
+  opacity: 0;
+  transition: all .15s $curve;
+}
+
+/**
+* Form Reset - remove focus highlighting
+*/
+
+* :focus {
+  outline-color: transparent;
+  outline-style: none;
+}
+
+body {
+  font-family: Roboto;
+  background: $page-bg;
+  font-size: 18px;
+  
+  a {
+    color: $light-blue;
+    font-size: 1em;
+    text-decoration: none;
+  }
+}
+
+.form-bottom{
+  margin-top:1.25em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+header {
+  padding-top: 10px;
+}
+
+.navbar-brand a, .navbar-brand a:hover {
+  color:  #000;
+  font-size: 50px;
+  text-decoration: none;
+  font-family: 'Dancing Script', cursive;
+}
+
+.navbar-nav li, .navbar-nav a {
+  color: #FFFFFF;
+  display: block;
+  font-size: 1.2em;
+  margin-top: 17px;
+  margin-left: 20px;
+}
+
+#container{
+  height: 500px;
+}
+
+/* ---------------------------- */
+/* --- ハンバーガーアイコン --- */
+/* ---------------------------- */
+#hm-icon{
+  position: fixed;
+  right: 20px;
+  top: 20px;
+  z-index: 10;
+}
+.menu-trigger,
+.menu-trigger span {
+  display: inline-block;
+  transition: all .4s;
+  box-sizing: border-box;
+}
+.menu-trigger {
+  position: relative;
+  width: 50px;
+  height: 44px;
+}
+.menu-trigger span {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: #161616;
+  border-radius: 4px;
+}
+.menu-trigger span:nth-of-type(1) {
+  top: 0;
+}
+.menu-trigger span:nth-of-type(2) {
+  top: 20px;
+}
+.menu-trigger span:nth-of-type(3) {
+  bottom: 0;
+}
+.menu-trigger.active span:nth-of-type(1) {
+  -webkit-transform: translateY(20px) rotate(-45deg);
+  transform: translateY(20px) rotate(-45deg);
+  background-color: #5AFF19;
+}
+.menu-trigger.active span:nth-of-type(2) {
+  opacity: 0;
+}
+.menu-trigger.active span:nth-of-type(3) {
+  -webkit-transform: translateY(-20px) rotate(45deg);
+  transform: translateY(-20px) rotate(45deg);
+  background-color: #5AFF19;
+}
+/* ------------------------ */
+/* ------ spメニュー ------ */
+/* ------------------------ */
+#sp-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #161616;
+  color: #5AFF19;
+  width: 100%;
+  min-height: 100%;
+  display: none;
+  z-index: 9;
+}
+#sp-menu li{
+  text-align: center;
+  margin-bottom: 50px;
+}
+#sp-menu a{
+  color: #5AFF19;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+ul {
+  list-style-type: none;
+  font-size: 20px;
+}
+
+.mypage {
+  background: #fff;
+}
+
+.profile_image {
+  width: 180px;
+  height: 180px;
+
+  object-fit: cover;
+}
+
+.form_group {
+  font-family: 'Montserrat', sans-serif;
+}
+
+table{
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+}
+
+table tr{
+  border-bottom: solid 1px #eee;
+  cursor: pointer;
+}
+
+table tr:hover{
+  background-color: #d4f0fd;
+}
+
+table th,table td{
+  text-align: center;
+  width: 15%;
+  padding: 10px 0;
+}
+
+.comment_image {
+  width: 50px;
+  height: 50px;
+
+  object-fit: cover;
+}
+
+.category-link {
+  width: 50%;
+  padding: 10px 0;
+}
+
+.form_text {
+  width: 100%;
+  height: 80px;
+  padding: 10px 0;
+}
+
+.form_area {
+  width: 100%;
+  height: 350px;
+  padding: 10px 0;
+}
+
+.article_show{
+  border: solid 1px #eee;
+  border-color: #BBBBBB;
+}
+
+.about-visual {
+  width: 100%;
+  height: 300px;
+  background-image: url('about3_image.jpg');
+  background-size: cover; /* 縦横比を維持したまま背景領域を埋め尽くす */
+  background-position: center; /* 背景画像を中央に配置 */
+}
+.about-visual-content{
+  width: 40%;
+  height: 300px;
+  background-color: rgba( 0, 0, 0, 0.5);
+  text-align: center; /* 文字を中央揃えにする */
+  padding-top: 105px; /* 上側の内側余白で垂直方向の位置を調整 */
+}
+.about-visual-text {
+  color: #fff; /* 文字色を白に変更 */
+}
+.about-visual-name {
+  margin-top: 30px;
+  color: #fff;
+  font-size: 20px;
+}
+
+.about-sub {
+  width: 800px;
+  margin: 30px 20%;
+}
+.about-sub-text {
+  color: #161616; /* 文字色を白に変更 */
+  font-size: 20px;
+  letter-spacing: 1px;
+  line-height: 1.8;
+}
+
+.top-visual {
+  width: 100%;
+  height: 500px;
+  background-image: url('about_image.jpg');
+  background-size: cover; /* 縦横比を維持したまま背景領域を埋め尽くす */
+  background-position: center; /* 背景画像を中央に配置 */
+}
+.top-visual-content{
+  width: 100%;
+  height: 500px;
+  text-align: center; /* 文字を中央揃えにする */
+  padding-top: 105px; /* 上側の内側余白で垂直方向の位置を調整 */
+}
+.top-visual-text {
+  color: #161616; /* 文字色を白に変更 */
+  font-size: 20px;
+  letter-spacing: 1px;
+  line-height: 1.8;
+}
+.top-visual-name {
+  margin-top: 30px;
+  color: #161616;
+  font-size: 30px;
+}
+
+.top-sub {
+  width: 800px;
+  margin: 30px 20%;
+}
+.top-sub-text {
+  color: #161616; /* 文字色を白に変更 */
+  font-size: 20px;
+  letter-spacing: 1px;
+  line-height: 1.8;
+}
+
+.mypage-visual {
+  width: 100%;
+  height: 100px;
+
+  background-size: cover; /* 縦横比を維持したまま背景領域を埋め尽くす */
+  background-position: center; /* 背景画像を中央に配置 */
+}
+
+.search-form {
+  margin-top: 30px;
+}
+
+footer {
+  padding: 15px 0;
+  font-size: 14px;
+  text-align: center;
+  background-color: #ccc;
+}
+
+.navbar-notice {
+  position: absolute;
+  height: 20px;
+  color: red;
+  padding-top: 5%;
+  padding-left: 4%;
+}
+
+.pagination {
+  padding-left: 40%;
+}

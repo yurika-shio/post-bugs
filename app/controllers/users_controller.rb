@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 	def show
 		@user = User.find(current_user.id)
 		@articles = @user.articles
-		@articles = Article.find_by(user_id: current_user.id)
+		@articles = Article.where(user_id: current_user.id).page(params[:page]).reverse_order
 	end
 
 	def edit

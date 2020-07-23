@@ -21,39 +21,44 @@
           <%= link_to "PostBugs", root_path %></div>
       </div>
           <!-- flashメッセージ表示 -->
-      <div class="navbar-nav navbar-right">
+      <div id="sp-menu">
        <% if user_signed_in? %>
-        <ul class= "list-inline">
-          <li>
-
-          </li>
+        <ul>
           <li>ようこそ <%= current_user.name %> さん！</li>
           <li><%= link_to "ABOUT", about_path %></li>
           <li><%= link_to "MyPage", user_path(current_user.id) %></li>
           <li><%= link_to "Article's", articles_path %></li>
-          <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+          <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "glyphicon glyphicon-log-out"  %></li>
         </ul>
       <% else %>
-        <ul class= "list-inline">
+        <ul>
           <li>ようこそ ゲストさん！</li>
           <li><%= link_to "TOP", top_path %></li>
           <li><%= link_to "ABOUT", about_path %></li>
-          <li><%= link_to "新規登録", new_user_registration_path %></li>
-          <li><%= link_to "ログイン", new_user_session_path %></li>
+          <li>
+            <%= link_to "新規登録", new_user_registration_path, class: "glyphicon glyphicon-user" %></li>
+          <li>
+            <%= link_to "ログイン", new_user_session_path, class: "glyphicon glyphicon-log-in" %></li>
         </ul>
       <% end %>
+    </div>
+        <div id="hm-icon">
+      <a class="menu-trigger" href="#">
+        <span></span>
+        <span></span>
+        <span></span>
+      </a>
     </div>
     </div>
     </nav>
   </header>
 
   <body>
-   <div class="navbar-notice">
+    <%= yield %>
+    <div class="navbar-notice">
             <% if flash[:notice] %>
               <p><%= flash[:notice]%></p>
             <% end %>
           </div>
-  <body>
-    <%= yield %>
   </body>
 </html>

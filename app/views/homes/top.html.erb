@@ -1,3 +1,19 @@
-<h5>ようこそ、post-bugsへ！
-このサイトは、プログラミング学習の中で経験したエラーの内容と解決策を自ら記録しまとめたメモサイトです。
-投稿・閲覧には会員登録が必要になります。</h5>
+<div class="top-visual">
+  <div class="top-visual-content">
+    <p class="top-visual-name">
+      ようこそ、PostBugsへ！<br>
+    </p>
+
+    <p class="top-visual-text">
+      このサイトは、プログラミング学習の中で<br>
+      経験したエラーの内容と解決策を自ら記録しまとめたメモサイトです。<br>
+      <br>
+      投稿・閲覧には会員登録が必要になります。
+    </p>
+
+    <p class="text-center">
+      <%= link_to "About it", about_path, class: 'btn btn-default sideby btn-lg' %>
+      <%= link_to "さぁ、はじめよう！", new_user_registration_path, class: 'btn btn-default sideby btn-lg' %>
+    </p>
+  </div>
+</div>
