@@ -11,7 +11,7 @@
 						<tr>
 							<td><%= attachment_image_tag user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg" %></td>
 							<td><%= user.name%></td>
-							<td><%= link_to "Show", user, class: "user_#{user.id}" %></td>
+							<td><%= link_to "Click!", user, class: "user_#{user.id} btn btn-default sideby" %></td>
 						</tr>
 						<% end %>
 					</tbody>

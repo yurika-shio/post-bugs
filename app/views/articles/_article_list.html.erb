@@ -16,8 +16,8 @@
         <td><%= article.title %></td>
         <td><%= article.error_name %></td>
         <td><%= article.categories.pluck(:category_name).join(",") %></td>
-        <td>コメント数：<%= article.comments.count %></td>
-        <td><%= link_to 'Show', article %></td>
+        <td>talk：<%= article.comments.count %></td>
+        <td><%= link_to 'Click!', article, class: "btn btn-default sideby" %></td>
       </tr>
     <% end %>
   </tbody>

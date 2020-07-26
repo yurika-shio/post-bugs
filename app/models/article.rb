@@ -6,6 +6,12 @@ class Article < ApplicationRecord
 
 	scope :from_category, -> (category_id)  { where(id: article_ids = ArticleCategory.where(category_id: category_id).select(:article_id))}
 
+	validates :title, presence: true
+	validates :error_name, presence: true
+	validates :factor, presence: true
+	validates :introduction, presence: true
+	validates :result, presence: true
+
 	def self.search_by_title(titles)
 		articles = Article.where(is_completed: true).where('title LIKE ?', "%#{titles}%")
 	end

@@ -44,6 +44,7 @@ group :development, :test do
   gem 'capistrano-rails'
   gem 'capistrano3-puma'
   gem 'capistrano-rbenv'
+  gem 'rspec-rails'
 end
 
 group :development do
@@ -92,3 +93,6 @@ end
 #bootstrap
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'jquery-rails'
+
+gem 'ed25519'
+gem 'bcrypt_pbkdf'

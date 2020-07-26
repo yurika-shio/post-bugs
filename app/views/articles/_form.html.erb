@@ -15,27 +15,27 @@
 
   <div class="row">
     <div class="col-sm-5">
-      <div class="form_group pt-4 pb-3">
+      <div class="form_group">
         <%= form.label :title %>
         <%= form.text_field :title, placeholder: "Write down your bug", class: "form-control" %>
       </div>
 
-      <div class="article-tags-field form_group pt-4 pb-3">
+      <div class="article-tags-field form_group">
         <%= form.label "categories" %>
         <ul id="article-tags"></ul>
       </div>
 
-      <div class="form_group pt-4 pb-3">
+      <div class="form_group">
         <%= form.label :error_name %>
         <%= form.text_field :error_name, class: "form-control" %>
       </div>
 
-      <div class="form_group pt-4 pb-3">
+      <div class="form_group">
         <%= form.label :factor %>
         <%= form.text_area :factor, placeholder: "Tell us more about your error!(Markdown)", rows: 15, class: "form-control" %>
       </div>
 
-      <div class="form_group pt-4 pb-3">
+      <div class="form_group">
         <%= form.label :reference %>
         <%= form.text_field :reference, placeholder: "ex) https://qiita.com/xxxxx/xxxxxx", class: "form-control" %>
       </div>
@@ -43,12 +43,12 @@
 
 
     <div class="col-sm-6">
-      <div class="form_group pt-4 pb-3">
+      <div class="form_group">
         <%= form.label :introduction %>
         <%= form.text_area :introduction, placeholder: "Tell us more about your error!(Markdown)", rows: 14, class: "form-control" %>
       </div>
 
-      <div class="form_group pt-4 pb-3">
+      <div class="form_group">
         <%= form.label :result %>
         <%= form.text_area :result, placeholder: "Tell us more about your error!(Markdown)", rows: 12, class: "form-control" %>
       </div>
