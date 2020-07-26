@@ -2,7 +2,7 @@
 lock "~> 3.14.1"
 
 set :application, "post-bugs"
-set :repo_url, "https://github.com/yurika-shio/post-bugs.git"
+set :repo_url, "git@github.com:yurika-shio/post-bugs.git"
 set :deploy_to, "/home/ec2-user/post-bugs"
 set :rbenv_ruby, '2.5.7'
 set :linked_files, %w{config/master.key .env}
