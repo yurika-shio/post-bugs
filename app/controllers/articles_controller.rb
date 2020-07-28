@@ -8,8 +8,8 @@ class ArticlesController < ApplicationController
     #@articles = Article.all
     if params[:category_id]
       @selected_category = Category.find(params[:category_id])
-      @articles= Article.where(is_completed: true).page(params[:page])
-      @articles= Article.from_category(params[:category_id]).page(params[:page])
+      # @articles= Article.where(is_completed: true).page(params[:page])
+      @articles= Article.from_category(params[:category_id]).where(is_completed: true).page(params[:page])
     else
       @articles= Article.where(is_completed: true).page(params[:page])
     end
