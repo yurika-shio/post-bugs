@@ -40,7 +40,7 @@ class ArticlesController < ApplicationController
     @article= Article.find(params[:id])
     @category_list = @article.categories.pluck(:category_name).join(",")
     if @article.user_id != current_user.id
-       redirect_to request.referer
+       redirect_back(fallback_location: root_path)
     end
   end
 
@@ -67,7 +67,7 @@ class ArticlesController < ApplicationController
       end
     end
 
-    category_list = params[:category_list].split(",")
+    category_list = params[:category_list].to_s.split(",")
     if @article.save
       @article.save_categories(category_list)
     else
@@ -88,7 +88,7 @@ class ArticlesController < ApplicationController
         format.json { render json: @article.errors, status: :unprocessable_entity }
       end
     end
-    category_list = params[:category_list].split(",")
+    category_list = params[:category_list].to_s.split(",")
     if @article.update_attributes(article_params)
       @article.save_categories(category_list)
     else

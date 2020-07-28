@@ -43,8 +43,9 @@
 							一時保存中
 						<% end %>
 					</td>
+					<% if @user.id == current_user.id %>
 					<td><%= link_to 'Edit', edit_article_path(article), class: "btn btn-default sideby" %></td>
-					<td><%= link_to "Destroy",article, method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn btn-default destroy_article_#{article.id}" %></td>
+					<td><%= link_to "Destroy",article, method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn btn-default destroy_article_#{article.id}" %></td><% end %>
 					<td></td>
 					<td></td>
 				</tr>

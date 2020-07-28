@@ -175,25 +175,5 @@ describe 'ユーザーのテスト' do
         expect(page).to have_content(categories)
       end
     end
-   #  context '自分の投稿詳細画面の表示を確認' do
-  	# 	it '投稿の編集リンクが表示される' do
-  	# 		visit article_path article_b
-  	# 		expect(page).to have_link 'Edit', href: edit_article_path(article_b)
-  	# 	end
-  	# 	it '投稿の削除リンクが表示される' do
-  	# 		visit article_path article_b
-  	# 		expect(page).to have_link 'Destroy', href: article_path(article_b)
-  	# 	end
-  	# end
-  	# context '他人の投稿詳細画面の表示を確認' do
-  	# 	it '投稿の編集リンクが表示されない' do
-  	# 		visit article_path(article_a)
-  	# 		expect(page).to have_no_link 'Edit', href: edit_article_path(article_a)
-  	# 	end
-  	# 	it '投稿の削除リンクが表示されない' do
-  	# 		visit article_path(article_a)
-  	# 		expect(page).to have_no_link 'Destroy', href: article_path(article_a)
-  	# 	end
-  	# end
   end
 end
