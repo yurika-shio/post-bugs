@@ -8,6 +8,7 @@ class ArticlesController < ApplicationController
     #@articles = Article.all
     if params[:category_id]
       @selected_category = Category.find(params[:category_id])
+      @articles= Article.where(is_completed: true).page(params[:page])
       @articles= Article.from_category(params[:category_id]).page(params[:page])
     else
       @articles= Article.where(is_completed: true).page(params[:page])
@@ -37,7 +38,7 @@ class ArticlesController < ApplicationController
   # GET /articles/1/edit
   def edit
     @article= Article.find(params[:id])
-    @category_list = @article.categories.pluck(:name).join(",")
+    @category_list = @article.categories.pluck(:category_name).join(",")
     if @article.user_id != current_user.id
        redirect_to request.referer
     end
