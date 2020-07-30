@@ -17,7 +17,7 @@
     <div class="col-sm-5">
       <div class="form_group">
         <%= form.label :title %>
-        <%= form.text_field :title, placeholder: "Write down your bug", class: "form-control" %>
+        <%= form.text_field :title, placeholder: "Write down your bug(need:必須)", class: "form-control" %>
       </div>
 
       <div class="article-tags-field form_group">
@@ -27,12 +27,12 @@
 
       <div class="form_group">
         <%= form.label :error_name %>
-        <%= form.text_field :error_name, class: "form-control" %>
+        <%= form.text_field :error_name,placeholder: "Tell us more about your error!(need:必須)", class: "form-control" %>
       </div>
 
       <div class="form_group">
         <%= form.label :factor %>
-        <%= form.text_area :factor, placeholder: "Tell us more about your error!(Markdown)", rows: 15, class: "form-control" %>
+        <%= form.text_area :factor, placeholder: "Tell us more about your error!(Markdown)(need:必須)", rows: 15, class: "form-control" %>
       </div>
 
       <div class="form_group">
@@ -45,12 +45,12 @@
     <div class="col-sm-6">
       <div class="form_group">
         <%= form.label :introduction %>
-        <%= form.text_area :introduction, placeholder: "Tell us more about your error!(Markdown)", rows: 14, class: "form-control" %>
+        <%= form.text_area :introduction, placeholder: "Tell us more about your error!(Markdown)(need:必須)", rows: 14, class: "form-control" %>
       </div>
 
       <div class="form_group">
         <%= form.label :result %>
-        <%= form.text_area :result, placeholder: "Tell us more about your error!(Markdown)", rows: 12, class: "form-control" %>
+        <%= form.text_area :result, placeholder: "Tell us more about your error!(Markdown)(need:必須)", rows: 12, class: "form-control" %>
       </div>
     </div>
   </div>
