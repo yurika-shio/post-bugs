@@ -4,7 +4,7 @@
   <div class="row">
     <div class="category-link">
     <% unless @article.categories.blank? %>
-       <!-- <ul> -->Click! -->
+       <!-- <ul> -->クリック! -->
       <% @article.categories.each do |category| %>
 <!--       <li> -->
         <%= link_to category.category_name,articles_path(category_id:category.id),class: 'btn btn-default sideby' %>
@@ -17,22 +17,22 @@
     <div class="row article_show">
     <div class="col-sm-5">
       <div class="form_text">
-        <strong>Title:</strong>
+        <strong>実装内容:</strong>
         <p><%= @article.title %></p>
       </div>
 
       <div class="form_text">
-        <strong>error_name:</strong>
+        <strong>エラー表記:</strong>
         <p><%= @article.error_name %></p>
       </div>
 
       <div class="form_text">
-        <strong>reference:</strong>
+        <strong>参考URL:</strong>
         <p><%= @article.reference %></p>
       </div>
 
       <div class="form_area">
-        <strong>Factor:</strong>
+        <strong>原因:</strong>
 <!--         <%= @article.factor %> -->
         <%= markdown(@article.factor).html_safe %>
       </div>
@@ -40,7 +40,7 @@
 
     <div class="col-sm-6">
       <div class="form_area">
-        <strong>Introduction:</strong>
+        <strong>実装方法:</strong>
 <!--         <%= @article.introduction %> -->
         <%= markdown(@article.introduction).html_safe %>
       </div>
@@ -48,7 +48,7 @@
       
 
       <div class="form_area">
-        <strong>Result:</strong>
+        <strong>解決方法:</strong>
 <!--         <%= @article.result %> -->
         <%= markdown(@article.result).html_safe %>
       </div>
@@ -57,7 +57,7 @@
 
     <div class="row">
       <div class="col-sm-7">
-        <strong>talking:</strong>
+        <strong>コメント:</strong>
         <%= @article.comments.count %>
       <div class="comment-form">
         <%= form_for [@article, @comment] do |f| %>
@@ -81,7 +81,7 @@
           <td><%= comment.comment %></td>
 
           <% unless current_user != comment.user %>
-          <td><%= link_to 'Destroy', article_comments_path(comment.id),class: 'btn btn-default sideby', method: :delete %></td>
+          <td><%= link_to '削除', article_comments_path(comment.id),class: 'btn btn-default sideby', method: :delete %></td>
           <% end %>
         </tr>
         <% end %>
@@ -93,5 +93,5 @@
 </div>
 
 
-<%= link_to 'Articles', articles_path %> |
-<%= link_to 'Back', user_path(current_user) %>
+<%= link_to "記事一覧", articles_path %> |
+<%= link_to 'マイページ', user_path(current_user) %>

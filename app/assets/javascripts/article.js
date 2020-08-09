@@ -16,9 +16,6 @@ $(document).on('turbolinks:load', function() {
       clearTimeout(preFunc);
       preFunc = setTimeout(ajaxPost(input), 500);
     }
-    else{
-      alert('文字が入力されませんでした');
-    }
     preInput = input;
   });
 });

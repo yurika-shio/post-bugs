@@ -26,8 +26,8 @@
         <ul>
           <li>ようこそ <%= current_user.name %> さん！</li>
           <li><%= link_to "ABOUT", about_path %></li>
-          <li><%= link_to "MyPage", user_path(current_user.id) %></li>
-          <li><%= link_to "Article's", articles_path %></li>
+          <li><%= link_to "マイページ", user_path(current_user.id) %></li>
+          <li><%= link_to "記事一覧", articles_path %></li>
           <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "glyphicon glyphicon-log-out"  %></li>
         </ul>
       <% else %>

@@ -2,7 +2,7 @@
 <%= form_with(model: article, local: true) do |form| %>
   <% if article.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(article.errors.count, "error") %> prohibited this article from being saved:</h2>
+      <h2><%= article.errors.count %>件のエラーが発生しました <!-- prohibited this article from being saved -->:</h2>
 
       <ul>
       <% article.errors.full_messages.each do |message| %>
@@ -16,27 +16,27 @@
   <div class="row">
     <div class="col-sm-5">
       <div class="form_group">
-        <%= form.label :title %>
-        <%= form.text_field :title, placeholder: "Write down your bug(need:必須)", class: "form-control" %>
+        <%= form.label :title, "実装内容(必須)" %>
+        <%= form.text_field :title, placeholder: "ex)タグ検索機能追加", class: "form-control" %>
       </div>
 
       <div class="article-tags-field form_group">
-        <%= form.label "categories" %>
+        <%= form.label :categories,"言語" %>
         <ul id="article-tags"></ul>
       </div>
 
       <div class="form_group">
-        <%= form.label :error_name %>
-        <%= form.text_field :error_name,placeholder: "Tell us more about your error!(need:必須)", class: "form-control" %>
+        <%= form.label :error_name, "エラー表記(必須)" %>
+        <%= form.text_field :error_name,placeholder: "ex)NoMethodError", class: "form-control" %>
       </div>
 
       <div class="form_group">
-        <%= form.label :factor %>
-        <%= form.text_area :factor, placeholder: "Tell us more about your error!(Markdown)(need:必須)", rows: 15, class: "form-control" %>
+        <%= form.label :factor,"原因(必須)" %>
+        <%= form.text_area :factor, placeholder: "マークダウン方式にて記入", rows: 15, class: "form-control" %>
       </div>
 
       <div class="form_group">
-        <%= form.label :reference %>
+        <%= form.label :reference,"参考URL" %>
         <%= form.text_field :reference, placeholder: "ex) https://qiita.com/xxxxx/xxxxxx", class: "form-control" %>
       </div>
     </div>
@@ -44,13 +44,13 @@
 
     <div class="col-sm-6">
       <div class="form_group">
-        <%= form.label :introduction %>
-        <%= form.text_area :introduction, placeholder: "Tell us more about your error!(Markdown)(need:必須)", rows: 14, class: "form-control" %>
+        <%= form.label :introduction,"実装方法(必須)" %>
+        <%= form.text_area :introduction, placeholder: "マークダウン方式にて記入", rows: 14, class: "form-control" %>
       </div>
 
       <div class="form_group">
-        <%= form.label :result %>
-        <%= form.text_area :result, placeholder: "Tell us more about your error!(Markdown)(need:必須)", rows: 12, class: "form-control" %>
+        <%= form.label :result,"解決方法(必須)" %>
+        <%= form.text_area :result, placeholder: "マークダウン方式にて記入", rows: 12, class: "form-control" %>
       </div>
     </div>
   </div>
@@ -60,9 +60,9 @@
 
     <div class="col-sm-3">
       <div class="actions">
-        <%= form.submit "Create" ,name:"button1",class: 'btn btn-default sideby' %>
-        <%= form.submit "Keep" ,name:"button2",class: 'btn btn-default sideby' %>
-        <%= link_to 'Back', articles_path,class: 'btn btn-default sideby' %>
+        <%= form.submit "保存" ,name:"button1",class: 'btn btn-default sideby' %>
+        <%= form.submit "一時保存" ,name:"button2",class: 'btn btn-default sideby' %>
+        <%= link_to '戻る', articles_path,class: 'btn btn-default sideby' %>
       </div>
     </div>
     <% end %>

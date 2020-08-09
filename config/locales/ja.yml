@@ -6,6 +6,7 @@ ja:
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
+
   date:
     abbr_day_names:
     - 日
@@ -204,3 +205,14 @@ ja:
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
     pm: 午後
+
+  activerecord:
+    models:
+      article: 記事
+    attributes:
+      article:
+        title: 実装内容
+        error_name: エラー表記
+        introduction: 実装方法
+        factor: 原因
+        result: 解決方法

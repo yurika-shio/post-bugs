@@ -19,13 +19,13 @@
 		<table>
 			<thead>
 				<tr>
-					<th>Title</th>
-					<th>Error</th>
-					<th>Category</th>
+					<th>実装内容</th>
+					<th>エラー表記</th>
+					<th>言語</th>
 					<th colspan="2"></th>
 					<th>
 						<% if @user.id == current_user.id %>
-			<%= link_to "new article", new_article_path, class: "btn btn-default glyphicon glyphicon-pencil" %>
+			<%= link_to "記録する", new_article_path, class: "btn btn-default glyphicon glyphicon-pencil" %>
 			<% end %></th>
 				</tr>
 			</thead>
@@ -44,8 +44,8 @@
 						<% end %>
 					</td>
 					<% if @user.id == current_user.id %>
-					<td><%= link_to 'Edit', edit_article_path(article), class: "btn btn-default sideby" %></td>
-					<td><%= link_to "Destroy",article, method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn btn-default destroy_article_#{article.id}" %></td><% end %>
+					<td><%= link_to '編集', edit_article_path(article), class: "btn btn-default sideby" %></td>
+					<td><%= link_to "削除",article, method: :delete, data: {confirm: "本当に削除してもよろしいですか？"}, class: "btn btn-default destroy_article_#{article.id}" %></td><% end %>
 					<td></td>
 					<td></td>
 				</tr>

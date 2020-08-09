@@ -1,9 +1,9 @@
 <table>
   <thead>
     <tr>
-      <th>投稿日</th>
-      <th>title</th>
-      <th>error_name</th>
+      <th>投稿日時</th>
+      <th>実装内容</th>
+      <th>エラー表記</th>
       <th>言語</th>
       <th colspan="3"></th>
     </tr>
@@ -16,7 +16,7 @@
         <td><%= article.title %></td>
         <td><%= article.error_name %></td>
         <td><%= article.categories.pluck(:category_name).join(",") %></td>
-        <td>talk：<%= article.comments.count %></td>
+        <td>コメント：<%= article.comments.count %></td>
         <td><%= link_to 'Click!', article, class: "btn btn-default sideby" %></td>
       </tr>
     <% end %>
