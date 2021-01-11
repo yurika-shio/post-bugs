@@ -76,7 +76,7 @@ gem 'devise'
 gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
 #Markdown実装
-gem 'redcarpet', '~> 2.3.0'
+gem 'redcarpet', '~> 3.5.1'
 gem 'coderay'
 #Tag-it は jQuery UI を利用
 gem 'jquery-rails'
